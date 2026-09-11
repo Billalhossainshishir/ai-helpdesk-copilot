@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Helpdesk Copilot portfolio demo - report and manage IT support issues." />
+  <title>AI Helpdesk Copilot | Report an IT Problem</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="AI Helpdesk Copilot home">
+        <span class="brand-mark" aria-hidden="true">AI</span>
+        <span>
+          <strong>Helpdesk Copilot</strong>
+          <small>IT Support Portfolio Demo</small>
+        </span>
+      </a>
+      <div class="server-status" id="serverStatus" role="status" aria-live="polite">
+        <span class="status-dot"></span>
+        <span>Checking service…</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">PORTFOLIO DEMO · NO LOGIN REQUIRED</span>
+          <h1>Report an IT problem in under a minute.</h1>
+          <p>
+            Create a real support ticket through the FastAPI backend. AI classification,
+            priority detection and troubleshooting suggestions are the next milestone.
+          </p>
+          <div class="hero-pills" aria-label="Project technologies">
+            <span>FastAPI</span>
+            <span>PostgreSQL-ready</span>
+            <span>REST API</span>
+            <span>Responsive UI</span>
+          </div>
+        </div>
+
+        <aside class="demo-card" aria-label="Demo flow">
+          <span class="demo-label">CURRENT LIVE FLOW</span>
+          <ol>
+            <li><span>1</span> Describe the IT issue</li>
+            <li><span>2</span> Create a support ticket</li>
+            <li><span>3</span> Receive a ticket number</li>
+            <li><span>4</span> Ticket is stored for technician workflow</li>
+          </ol>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="Report IT problem">
+        <div class="form-panel">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">CUSTOMER PORTAL</span>
+              <h2>Report IT Problem</h2>
+            </div>
+            <span class="required-note"><span>*</span> Required</span>
+          </div>
+
+          <div class="sample-section">
+            <span>Try a sample problem</span>
+            <div class="sample-buttons" id="sampleButtons">
+              <button type="button" class="sample-btn" data-sample="wifi">Wi-Fi issue</button>
+              <button type="button" class="sample-btn" data-sample="password">Password problem</button>
+              <button type="button" class="sample-btn" data-sample="security">Security incident</button>
+              <button type="button" class="sample-btn" data-sample="software">Software crash</button>
+            </div>
+          </div>
+
+          <form id="ticketForm" novalidate>
+            <div class="form-grid two-columns">
+              <label class="field">
+                <span>Your name <b>*</b></span>
+                <input id="name" name="name" type="text" minlength="2" maxlength="120" autocomplete="name" placeholder="e.g. Alex Morgan" required />
+                <small class="field-error" data-error-for="name"></small>
+              </label>
+
+              <label class="field">
+                <span>Email address <b>*</b></span>
+                <input id="email" name="email" type="email" maxlength="254" autocomplete="email" placeholder="alex@example.com" required />
+                <small class="field-error" data-error-for="email"></small>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Device type</span>
+              <select id="deviceType" name="device_type">
+                <option value="">Select a device</option>
+                <option>Windows laptop</option>
+                <option>MacBook</option>
+                <option>Desktop PC</option>
+                <option>iPhone</option>
+                <option>Android phone</option>
+                <option>Tablet</option>
+                <option>Printer</option>
+                <option>Network / Wi-Fi</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Issue title <b>*</b></span>
+              <input id="title" name="title" type="text" minlength="3" maxlength="200" placeholder="Short summary of the problem" required />
+              <small class="field-error" data-error-for="title"></small>
+            </label>
+
+            <label class="field">
+              <span>Describe what is happening <b>*</b></span>
+              <textarea id="description" name="description" minlength="10" maxlength="5000" rows="7" placeholder="What happened? When did it start? What have you already tried?" required></textarea>
+              <div class="field-footer">
+                <small class="field-error" data-error-for="description"></small>
+                <small id="descriptionCount">0 / 5000</small>
+              </div>
+            </label>
+
+            <div class="analysis-preview" aria-label="Upcoming AI features">
+              <div class="analysis-icon" aria-hidden="true">✦</div>
+              <div>
+                <strong>AI analysis comes next</strong>
+                <p>The next milestone will classify the category, estimate priority and retrieve relevant troubleshooting guidance before ticket creation.</p>
+              </div>
+            </div>
+
+            <div id="formAlert" class="form-alert" role="alert" aria-live="assertive" hidden></div>
+
+            <button class="primary-btn" id="submitButton" type="submit">
+              <span class="button-text">Create Support Ticket</span>
+              <span class="button-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+
+        <aside class="side-panel">
+          <div class="info-card">
+            <span class="info-icon" aria-hidden="true">✓</span>
+            <div>
+              <h3>What happens now?</h3>
+              <p>Your ticket is validated by FastAPI, stored in the database and given a unique helpdesk number.</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="info-icon" aria-hidden="true">↗</span>
+            <div>
+              <h3>API documentation</h3>
+              <p>Explore the backend endpoints and schemas through the built-in Swagger interface.</p>
+              <a href="/docs" target="_blank" rel="noreferrer">Open API docs <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="milestone-header">
+              <span>PROJECT PROGRESS</span>
+              <strong>2 / 10</strong>
+            </div>
+            <div class="progress-track"><span></span></div>
+            <ul>
+              <li class="done">Database & ticket API</li>
+              <li class="done">Customer reporting interface</li>
+              <li>ML ticket classifier</li>
+              <li>Priority detection</li>
+              <li>Knowledge retrieval</li>
+              <li>Technician dashboard & analytics</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>AI Helpdesk Copilot · Portfolio Project</span>
+      <span>Built with Python, FastAPI, SQLAlchemy & JavaScript</span>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="successModal" hidden>
+    <section class="success-modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <div class="success-check" aria-hidden="true">✓</div>
+      <span class="eyebrow">TICKET CREATED</span>
+      <h2 id="successTitle">Your issue has been logged.</h2>
+      <p>The helpdesk API accepted your request and stored it successfully.</p>
+
+      <div class="ticket-receipt">
+        <div>
+          <span>Ticket number</span>
+          <strong id="receiptTicketNumber">—</strong>
+        </div>
+        <div>
+          <span>Status</span>
+          <strong id="receiptStatus">Open</strong>
+        </div>
+        <div>
+          <span>Category</span>
+          <strong id="receiptCategory">Other</strong>
+        </div>
+        <div>
+          <span>Priority</span>
+          <strong id="receiptPriority">Medium</strong>
+        </div>
+      </div>
+
+      <p class="receipt-note">Category and priority are defaults in this milestone. The AI classifier and priority engine will replace them in the next stage.</p>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="newTicketButton">Report another issue</button>
+        <a class="primary-link" href="/docs" target="_blank" rel="noreferrer">View API</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>
