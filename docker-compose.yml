@@ -21,7 +21,7 @@ services:
       dockerfile: backend/Dockerfile
     environment:
       DATABASE_URL: postgresql+psycopg://helpdesk:helpdesk@db:5432/helpdesk
-      CORS_ORIGINS: http://localhost:5500,http://127.0.0.1:5500,http://localhost:3000
+      CORS_ORIGINS: http://localhost:8000,http://127.0.0.1:8000
     ports:
       - "8000:8000"
     depends_on:

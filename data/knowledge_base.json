@@ -1,0 +1,562 @@
+[
+  {
+    "id": 1,
+    "title": "Wi-Fi disconnects frequently",
+    "category": "Network",
+    "problem": "Intermittent wireless connection",
+    "solution": "Forget and reconnect to the Wi-Fi network; restart the wireless adapter; update the Wi-Fi driver; test closer to the access point.",
+    "keywords": "wifi wireless disconnect drop"
+  },
+  {
+    "id": 2,
+    "title": "No internet connection",
+    "category": "Network",
+    "problem": "Connected to network but cannot browse",
+    "solution": "Check whether other devices have internet; renew the IP configuration; verify DNS settings; restart the router only if you control it.",
+    "keywords": "internet no access dns gateway"
+  },
+  {
+    "id": 3,
+    "title": "VPN connection fails",
+    "category": "Network",
+    "problem": "Remote access VPN does not connect",
+    "solution": "Confirm normal internet access first; verify date/time; restart the VPN client; re-enter credentials; capture the exact VPN error code.",
+    "keywords": "vpn remote access tunnel"
+  },
+  {
+    "id": 4,
+    "title": "Slow network performance",
+    "category": "Network",
+    "problem": "Websites and downloads are unusually slow",
+    "solution": "Run a speed test; pause large downloads; check signal strength; compare wired versus wireless performance.",
+    "keywords": "slow latency bandwidth"
+  },
+  {
+    "id": 5,
+    "title": "Ethernet has no connection",
+    "category": "Network",
+    "problem": "Wired network adapter is offline",
+    "solution": "Reseat the cable; try another port/cable; confirm the adapter is enabled; renew the IP address.",
+    "keywords": "ethernet cable adapter lan"
+  },
+  {
+    "id": 6,
+    "title": "DNS resolution problem",
+    "category": "Network",
+    "problem": "Sites fail by name but network is connected",
+    "solution": "Try reaching a known IP address; flush the DNS cache; switch to the approved DNS servers; restart the network adapter.",
+    "keywords": "dns resolve hostname"
+  },
+  {
+    "id": 7,
+    "title": "Cannot reach internal service",
+    "category": "Network",
+    "problem": "Public internet works but internal site fails",
+    "solution": "Confirm VPN or office network connection; verify the URL; test another internal service; collect traceroute information for IT.",
+    "keywords": "internal intranet route vpn"
+  },
+  {
+    "id": 8,
+    "title": "Weak Wi-Fi signal",
+    "category": "Network",
+    "problem": "Wireless signal drops in one location",
+    "solution": "Move closer to the access point; avoid physical obstructions; test another approved access point; compare with another device.",
+    "keywords": "wifi weak signal access point"
+  },
+  {
+    "id": 9,
+    "title": "Cannot get IP address",
+    "category": "Network",
+    "problem": "Device shows self-assigned or missing IP",
+    "solution": "Disable/enable the adapter; renew DHCP; reconnect to the network; check whether the issue affects other devices.",
+    "keywords": "dhcp ip address"
+  },
+  {
+    "id": 10,
+    "title": "Network printer unreachable",
+    "category": "Network",
+    "problem": "Printer cannot be reached over network",
+    "solution": "Confirm the printer is powered on; ping its address; reconnect the printer queue; verify you are on the correct network.",
+    "keywords": "printer network ip offline"
+  },
+  {
+    "id": 11,
+    "title": "Laptop does not power on",
+    "category": "Hardware",
+    "problem": "No lights or response when pressing power",
+    "solution": "Disconnect accessories; connect the charger; hold the power button for 15 seconds; retry; note any lights or beep codes.",
+    "keywords": "power boot laptop"
+  },
+  {
+    "id": 12,
+    "title": "Battery not charging",
+    "category": "Hardware",
+    "problem": "Laptop battery percentage does not increase",
+    "solution": "Check charger seating; inspect the cable; try an approved charger; restart; review battery health in the operating system.",
+    "keywords": "battery charger power"
+  },
+  {
+    "id": 13,
+    "title": "External monitor not detected",
+    "category": "Hardware",
+    "problem": "Second display has no image",
+    "solution": "Reseat the display cable; select the correct monitor input; press Detect displays; try another cable or port.",
+    "keywords": "monitor hdmi display"
+  },
+  {
+    "id": 14,
+    "title": "Keyboard keys not responding",
+    "category": "Hardware",
+    "problem": "Some or all keyboard input fails",
+    "solution": "Restart the device; test an external keyboard; check for stuck keys; update keyboard drivers if required.",
+    "keywords": "keyboard keys input"
+  },
+  {
+    "id": 15,
+    "title": "Mouse disconnects",
+    "category": "Hardware",
+    "problem": "USB or Bluetooth mouse is intermittent",
+    "solution": "Replace/recharge the battery; reconnect Bluetooth or USB; try another port; test the mouse on another device.",
+    "keywords": "mouse bluetooth usb"
+  },
+  {
+    "id": 16,
+    "title": "Laptop overheating",
+    "category": "Hardware",
+    "problem": "Device becomes very hot or shuts down",
+    "solution": "Move the device to a hard surface; close heavy applications; confirm vents are clear; report repeated thermal shutdowns.",
+    "keywords": "overheat fan temperature"
+  },
+  {
+    "id": 17,
+    "title": "USB device not recognised",
+    "category": "Hardware",
+    "problem": "Computer does not detect USB accessory",
+    "solution": "Reconnect the device; try another USB port; restart; check Device Manager; test the accessory on another computer.",
+    "keywords": "usb device port"
+  },
+  {
+    "id": 18,
+    "title": "Webcam not detected",
+    "category": "Hardware",
+    "problem": "Camera unavailable in meeting apps",
+    "solution": "Check privacy permissions; close other camera apps; reconnect external webcams; restart the device; test the built-in Camera app.",
+    "keywords": "camera webcam"
+  },
+  {
+    "id": 19,
+    "title": "Docking station problems",
+    "category": "Hardware",
+    "problem": "Multiple dock-connected devices fail",
+    "solution": "Power-cycle the dock; reconnect USB-C; test direct connections; update approved dock firmware if available.",
+    "keywords": "dock docking station usb-c"
+  },
+  {
+    "id": 20,
+    "title": "Unexpected shutdowns",
+    "category": "Hardware",
+    "problem": "Computer powers off without warning",
+    "solution": "Check overheating; disconnect unnecessary peripherals; review battery/charger behaviour; record when the shutdown happens.",
+    "keywords": "shutdown hardware power"
+  },
+  {
+    "id": 21,
+    "title": "Application crashes on launch",
+    "category": "Software",
+    "problem": "Program closes immediately after opening",
+    "solution": "Restart the device; check for updates; clear the application cache if supported; repair or reinstall only with approved procedures.",
+    "keywords": "crash launch application"
+  },
+  {
+    "id": 22,
+    "title": "Outlook will not open",
+    "category": "Software",
+    "problem": "Outlook fails during startup",
+    "solution": "Restart Outlook; try safe mode; check for Office updates; create a new Outlook profile if approved.",
+    "keywords": "outlook start profile"
+  },
+  {
+    "id": 23,
+    "title": "Software installation fails",
+    "category": "Software",
+    "problem": "Installer stops with an error",
+    "solution": "Record the exact error; confirm disk space; run the approved installer; verify you have required permissions.",
+    "keywords": "install setup permissions"
+  },
+  {
+    "id": 24,
+    "title": "Excel freezes",
+    "category": "Software",
+    "problem": "Spreadsheet application stops responding",
+    "solution": "Open Excel without add-ins; try a local copy of the file; update Office; test another workbook.",
+    "keywords": "excel freeze spreadsheet"
+  },
+  {
+    "id": 25,
+    "title": "Teams crashes",
+    "category": "Software",
+    "problem": "Collaboration app repeatedly closes",
+    "solution": "Quit Teams fully; clear its cache using approved steps; update the app; restart the device.",
+    "keywords": "teams meeting crash"
+  },
+  {
+    "id": 26,
+    "title": "Browser crashes",
+    "category": "Software",
+    "problem": "Web browser closes unexpectedly",
+    "solution": "Update the browser; disable problematic extensions; clear cache; test an InPrivate/Incognito window.",
+    "keywords": "browser crash chrome edge"
+  },
+  {
+    "id": 27,
+    "title": "Application update stuck",
+    "category": "Software",
+    "problem": "Update never completes",
+    "solution": "Restart the application and device; verify internet access and free space; retry the approved update.",
+    "keywords": "update stuck software"
+  },
+  {
+    "id": 28,
+    "title": "Missing DLL error",
+    "category": "Software",
+    "problem": "Windows program reports a missing component",
+    "solution": "Capture the DLL name; repair the application; install the approved runtime package; avoid downloading DLL files from random websites.",
+    "keywords": "dll missing runtime"
+  },
+  {
+    "id": 29,
+    "title": "Software licence issue",
+    "category": "Software",
+    "problem": "Application says licence is missing or expired",
+    "solution": "Confirm you are signed in with the licensed account; check network access; sign out/in; contact licensing support if entitlement is missing.",
+    "keywords": "license activation subscription"
+  },
+  {
+    "id": 30,
+    "title": "Cannot save file",
+    "category": "Software",
+    "problem": "Application cannot save documents",
+    "solution": "Try Save As to an approved local folder; check free space; verify folder permissions; test with a new file.",
+    "keywords": "save permissions file"
+  },
+  {
+    "id": 31,
+    "title": "Forgotten password",
+    "category": "Account",
+    "problem": "User cannot remember account password",
+    "solution": "Use the official password-reset portal; create a strong new password; sign in again; update saved credentials on other devices.",
+    "keywords": "password reset credentials"
+  },
+  {
+    "id": 32,
+    "title": "Account locked",
+    "category": "Account",
+    "problem": "Too many sign-in attempts locked the account",
+    "solution": "Wait for the lockout period if policy allows; use self-service unlock; contact the service desk if the account remains locked.",
+    "keywords": "locked login account"
+  },
+  {
+    "id": 33,
+    "title": "Password reset not accepted",
+    "category": "Account",
+    "problem": "New password does not work",
+    "solution": "Confirm the username; wait briefly for synchronisation; reconnect to network/VPN if required; remove old saved credentials.",
+    "keywords": "password reset sync"
+  },
+  {
+    "id": 34,
+    "title": "MFA code not working",
+    "category": "Account",
+    "problem": "Multi-factor code is rejected",
+    "solution": "Check device time; request a fresh code; verify the correct account in the authenticator; use an approved backup method.",
+    "keywords": "mfa otp authenticator"
+  },
+  {
+    "id": 35,
+    "title": "Account disabled",
+    "category": "Account",
+    "problem": "Sign-in reports account disabled",
+    "solution": "Confirm employment/access status; service desk should verify identity and account state before re-enabling.",
+    "keywords": "disabled user login"
+  },
+  {
+    "id": 36,
+    "title": "Cannot access work account",
+    "category": "Account",
+    "problem": "General sign-in failure",
+    "solution": "Check username format; confirm network; reset password if necessary; capture the exact error message.",
+    "keywords": "login credentials access"
+  },
+  {
+    "id": 37,
+    "title": "Password reset link expired",
+    "category": "Account",
+    "problem": "Self-service reset link no longer works",
+    "solution": "Start a new password-reset request from the official portal and use the newest link only.",
+    "keywords": "reset link expired"
+  },
+  {
+    "id": 38,
+    "title": "Authenticator lost after phone change",
+    "category": "Account",
+    "problem": "MFA device is unavailable",
+    "solution": "Use approved recovery methods; service desk should verify identity before resetting MFA registration.",
+    "keywords": "mfa phone lost device"
+  },
+  {
+    "id": 39,
+    "title": "Sign-in loop",
+    "category": "Account",
+    "problem": "Login repeatedly returns to sign-in page",
+    "solution": "Clear site cookies for the service; try a private window; verify system time; sign out of other sessions.",
+    "keywords": "login loop session"
+  },
+  {
+    "id": 40,
+    "title": "Username not recognised",
+    "category": "Account",
+    "problem": "System reports unknown user",
+    "solution": "Verify the exact username/email format; check spelling; confirm the account has been provisioned.",
+    "keywords": "username account"
+  },
+  {
+    "id": 41,
+    "title": "Cannot send email",
+    "category": "Email",
+    "problem": "Outgoing messages fail",
+    "solution": "Check internet access; inspect Outbox; restart Outlook; verify mailbox quota; note any non-delivery message.",
+    "keywords": "email send smtp outbox"
+  },
+  {
+    "id": 42,
+    "title": "Not receiving email",
+    "category": "Email",
+    "problem": "New messages do not arrive",
+    "solution": "Check webmail; refresh/sync; review rules and junk folder; confirm mailbox quota.",
+    "keywords": "email receive sync inbox"
+  },
+  {
+    "id": 43,
+    "title": "Mailbox full",
+    "category": "Email",
+    "problem": "Storage quota reached",
+    "solution": "Delete or archive approved messages; empty Deleted Items; review large attachments; request quota help if needed.",
+    "keywords": "mailbox quota full"
+  },
+  {
+    "id": 44,
+    "title": "Attachment will not download",
+    "category": "Email",
+    "problem": "Email file attachment cannot be opened",
+    "solution": "Check internet access; try webmail; save the file locally; verify security policy has not blocked the attachment.",
+    "keywords": "attachment download email"
+  },
+  {
+    "id": 45,
+    "title": "Outlook search broken",
+    "category": "Email",
+    "problem": "Search returns incomplete results",
+    "solution": "Restart Outlook; update Office; rebuild search index only if approved; compare search in webmail.",
+    "keywords": "outlook search index"
+  },
+  {
+    "id": 46,
+    "title": "Shared mailbox missing",
+    "category": "Email",
+    "problem": "User cannot see shared mailbox",
+    "solution": "Confirm permission exists; restart Outlook; remove/re-add the mailbox profile if approved; allow time for permission propagation.",
+    "keywords": "shared mailbox access"
+  },
+  {
+    "id": 47,
+    "title": "Calendar invites missing",
+    "category": "Email",
+    "problem": "Meeting invitations are not visible",
+    "solution": "Check Deleted/Junk; inspect inbox rules; compare webmail calendar; verify delegate settings.",
+    "keywords": "calendar invite email"
+  },
+  {
+    "id": 48,
+    "title": "Emails stuck in Outbox",
+    "category": "Email",
+    "problem": "Messages remain unsent",
+    "solution": "Check connectivity; open large attachments; restart Outlook; move stuck message to Drafts and resend.",
+    "keywords": "outbox stuck email"
+  },
+  {
+    "id": 49,
+    "title": "Email not syncing on phone",
+    "category": "Email",
+    "problem": "Mobile mail is out of date",
+    "solution": "Confirm internet access; refresh the account; check modern authentication; remove/re-add account only if allowed.",
+    "keywords": "mobile email sync"
+  },
+  {
+    "id": 50,
+    "title": "Automatic replies fail",
+    "category": "Email",
+    "problem": "Out of office setting does not work",
+    "solution": "Check start/end dates; configure in webmail; verify inbox rules are not conflicting.",
+    "keywords": "automatic replies out of office"
+  },
+  {
+    "id": 51,
+    "title": "Phishing email received",
+    "category": "Security",
+    "problem": "Suspicious message asks for credentials",
+    "solution": "Do not click links or open attachments; report the message using the approved phishing process; delete it after reporting.",
+    "keywords": "phishing suspicious email"
+  },
+  {
+    "id": 52,
+    "title": "Phishing link clicked",
+    "category": "Security",
+    "problem": "User clicked a suspicious link",
+    "solution": "Disconnect from sensitive sessions; change password from a trusted device; report immediately; review sign-in activity and MFA.",
+    "keywords": "phishing clicked compromise"
+  },
+  {
+    "id": 53,
+    "title": "Unexpected sign-in alert",
+    "category": "Security",
+    "problem": "Account sign-in from unknown location",
+    "solution": "Do not approve unknown MFA prompts; change password; revoke suspicious sessions; report the alert to security.",
+    "keywords": "login alert security"
+  },
+  {
+    "id": 54,
+    "title": "Possible malware",
+    "category": "Security",
+    "problem": "Device shows suspicious behaviour",
+    "solution": "Disconnect from network if active compromise is suspected; do not continue normal work; run the approved security scan; contact IT/security.",
+    "keywords": "malware virus threat"
+  },
+  {
+    "id": 55,
+    "title": "Ransomware warning",
+    "category": "Security",
+    "problem": "Files encrypted or ransom note displayed",
+    "solution": "Immediately disconnect the device from network and power sources only if instructed; contact security/service desk urgently; do not pay or interact with the ransom note.",
+    "keywords": "ransomware encrypted critical"
+  },
+  {
+    "id": 56,
+    "title": "Lost company device",
+    "category": "Security",
+    "problem": "Laptop or phone is missing",
+    "solution": "Report the loss immediately; provide last known location/time; security should revoke sessions and initiate remote protection if available.",
+    "keywords": "lost stolen device"
+  },
+  {
+    "id": 57,
+    "title": "Password compromised",
+    "category": "Security",
+    "problem": "Credentials may have been exposed",
+    "solution": "Change the password from a trusted device; enable/verify MFA; revoke active sessions; report possible exposure.",
+    "keywords": "password compromise security"
+  },
+  {
+    "id": 58,
+    "title": "Antivirus detected threat",
+    "category": "Security",
+    "problem": "Security software reports malware",
+    "solution": "Do not ignore or disable protection; isolate the device if instructed; capture the alert name; contact IT/security.",
+    "keywords": "antivirus detected"
+  },
+  {
+    "id": 59,
+    "title": "Unknown MFA prompt",
+    "category": "Security",
+    "problem": "Unexpected authentication approval request",
+    "solution": "Deny the request; change password; report it; review recent sign-in activity.",
+    "keywords": "mfa fatigue prompt"
+  },
+  {
+    "id": 60,
+    "title": "Sensitive data sent incorrectly",
+    "category": "Security",
+    "problem": "Confidential information went to wrong recipient",
+    "solution": "Do not send follow-up copies; notify security/privacy immediately; provide recipient, data type and time sent.",
+    "keywords": "data exposure privacy"
+  },
+  {
+    "id": 61,
+    "title": "New desk setup",
+    "category": "Other",
+    "problem": "User needs workstation setup assistance",
+    "solution": "Connect approved equipment; verify power, display, network and peripherals; record any missing assets.",
+    "keywords": "setup desk monitor dock"
+  },
+  {
+    "id": 62,
+    "title": "Software access request",
+    "category": "Other",
+    "problem": "User needs access to an application",
+    "solution": "Use the approved access-request process; include business justification and manager approval where required.",
+    "keywords": "access request software"
+  },
+  {
+    "id": 63,
+    "title": "Printer setup",
+    "category": "Other",
+    "problem": "User needs a printer configured",
+    "solution": "Confirm printer name/location; add the approved printer queue; print a test page.",
+    "keywords": "printer setup queue"
+  },
+  {
+    "id": 64,
+    "title": "Meeting room display help",
+    "category": "Other",
+    "problem": "User needs help presenting in a room",
+    "solution": "Select the correct room input; connect the approved cable/wireless display; test audio and video before the meeting.",
+    "keywords": "meeting room display hdmi"
+  },
+  {
+    "id": 65,
+    "title": "New user setup",
+    "category": "Other",
+    "problem": "Prepare access for a new employee",
+    "solution": "Follow onboarding checklist for account, device, MFA, email, required groups and software.",
+    "keywords": "new user onboarding"
+  },
+  {
+    "id": 66,
+    "title": "Remote work setup",
+    "category": "Other",
+    "problem": "User needs remote-working guidance",
+    "solution": "Confirm internet, VPN, MFA and approved collaboration tools; provide secure remote-working guidance.",
+    "keywords": "remote work vpn"
+  },
+  {
+    "id": 67,
+    "title": "Shared folder access",
+    "category": "Other",
+    "problem": "User needs help connecting a shared location",
+    "solution": "Confirm permission; connect using the approved path; re-authenticate if required.",
+    "keywords": "shared folder drive"
+  },
+  {
+    "id": 68,
+    "title": "Default browser change",
+    "category": "Other",
+    "problem": "User wants a different approved browser",
+    "solution": "Use operating-system default-app settings and select an approved browser.",
+    "keywords": "default browser settings"
+  },
+  {
+    "id": 69,
+    "title": "Approved software install request",
+    "category": "Other",
+    "problem": "User requests a permitted application",
+    "solution": "Confirm the software is approved and licensed; use managed software centre or service desk process.",
+    "keywords": "software request install"
+  },
+  {
+    "id": 70,
+    "title": "General IT assistance",
+    "category": "Other",
+    "problem": "Issue does not fit another category",
+    "solution": "Collect device, symptoms, timing and impact; create a ticket and route to the appropriate support team.",
+    "keywords": "general help it"
+  }
+]
