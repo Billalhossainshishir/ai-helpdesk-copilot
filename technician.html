@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browser-based technician workflow demo for AI Helpdesk Copilot." />
+  <title>AI Helpdesk Copilot | Technician Demo</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="assets/js/technician.js" defer></script>
+</head>
+<body>
+  <div class="app-shell dashboard-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">AI</span>
+        <span><strong>Helpdesk Copilot</strong><small>Technician Demo</small></span>
+      </a>
+      <nav class="top-actions">
+        <a class="nav-link" href="index.html">Report issue</a>
+        <a class="nav-link active" href="technician.html">Technician dashboard</a>
+        <a class="nav-link" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="server-status online"><span class="status-dot"></span><span>Browser demo</span></div>
+      </nav>
+    </header>
+
+    <main class="dashboard-main">
+      <section class="dashboard-title">
+        <div>
+          <span class="eyebrow">TECHNICIAN DASHBOARD · GITHUB PAGES DEMO</span>
+          <h1>Service desk operations</h1>
+          <p>Explore assignment, status, notes, resolution, similar incidents and operational analytics without a hosted backend.</p>
+        </div>
+        <div class="dashboard-actions">
+          <span class="sync-status" id="dashboardSyncStatus" data-state="ok">Browser data ready</span>
+          <button class="secondary-btn" id="resetDemo">Reset demo</button>
+          <button class="primary-btn" id="refreshDashboard">Refresh</button>
+        </div>
+      </section>
+
+      <section class="panel demo-transparency dashboard-demo-note">
+        <div>
+          <span class="eyebrow">TRANSPARENT DEMO MODE</span>
+          <h2>What you are seeing</h2>
+          <p>This GitHub Pages dashboard runs with curated sample tickets plus tickets you create in the customer demo. Data is stored only in your browser. The repository contains the complete FastAPI/SQLAlchemy/PostgreSQL implementation, real ticket API, scikit-learn classifier, TF-IDF retrieval, Docker Compose and automated tests.</p>
+        </div>
+        <div class="demo-links">
+          <a class="primary-link button-link" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot" target="_blank" rel="noreferrer">View backend code</a>
+          <a class="secondary-btn demo-anchor" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture</a>
+        </div>
+      </section>
+
+      <section class="kpi-grid">
+        <article class="kpi"><span>Open tickets</span><strong id="kpiOpen">—</strong><small>Awaiting action</small></article>
+        <article class="kpi"><span>Critical tickets</span><strong id="kpiCritical">—</strong><small>Immediate review</small></article>
+        <article class="kpi"><span>Resolved today</span><strong id="kpiResolved">—</strong><small>Completed today</small></article>
+        <article class="kpi"><span>Avg resolution</span><strong id="kpiAverage">—</strong><small>Minutes</small></article>
+        <article class="kpi"><span>Resolution rate</span><strong id="kpiRate">—</strong><small>Browser demo data</small></article>
+      </section>
+
+      <section class="chart-grid">
+        <article class="panel chart-panel"><div class="panel-heading compact"><div><span class="eyebrow">WORKLOAD</span><h3>Tickets by category</h3></div></div><canvas id="categoryChart" height="190"></canvas></article>
+        <article class="panel chart-panel"><div class="panel-heading compact"><div><span class="eyebrow">PRIORITY</span><h3>Tickets by priority</h3></div></div><canvas id="priorityChart" height="190"></canvas></article>
+        <article class="panel chart-panel wide"><div class="panel-heading compact"><div><span class="eyebrow">TREND</span><h3>Tickets over time</h3></div></div><canvas id="dailyChart" height="105"></canvas></article>
+      </section>
+
+      <section class="panel ticket-panel">
+        <div class="ticket-toolbar">
+          <div><span class="eyebrow">INCIDENT QUEUE</span><h2>Support tickets</h2></div>
+          <div class="filters">
+            <input id="searchFilter" type="search" placeholder="Search tickets…" />
+            <select id="statusFilter"><option value="">All statuses</option><option>Open</option><option>In Progress</option><option>Waiting</option><option>Resolved</option><option>Closed</option></select>
+            <select id="priorityFilter"><option value="">All priorities</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select>
+            <select id="categoryFilter"><option value="">All categories</option><option>Network</option><option>Hardware</option><option>Software</option><option>Account</option><option>Email</option><option>Security</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Ticket</th><th>Issue</th><th>Category</th><th>Priority</th><th>Status</th><th>Assigned</th><th>Created</th></tr></thead>
+            <tbody id="ticketRows"></tbody>
+          </table>
+        </div>
+        <div class="table-empty" id="tableEmpty" hidden>No tickets match the current filters.</div>
+      </section>
+    </main>
+
+    <footer>
+      <span>AI Helpdesk Copilot · Technician Portfolio Demo</span>
+      <span>Browser simulation · full engineering implementation on GitHub</span>
+    </footer>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="ticket-drawer" id="ticketDrawer" aria-label="Ticket details" hidden>
+    <div class="drawer-header">
+      <div><span class="eyebrow">TICKET DETAIL</span><h2 id="drawerNumber">—</h2></div>
+      <button class="icon-btn" id="closeDrawer" aria-label="Close">×</button>
+    </div>
+    <div class="drawer-body">
+      <div class="ticket-title-block">
+        <h3 id="drawerTitle">—</h3>
+        <p id="drawerDescription">—</p>
+        <div class="badge-row"><span id="drawerCategory" class="badge"></span><span id="drawerPriority" class="badge"></span><span id="drawerStatus" class="badge"></span></div>
+      </div>
+
+      <div class="detail-grid">
+        <div><span>Requester</span><strong id="drawerRequester">—</strong></div>
+        <div><span>Device</span><strong id="drawerDevice">—</strong></div>
+        <div><span>Created</span><strong id="drawerCreated">—</strong></div>
+        <div><span>Assigned</span><strong id="drawerAssigned">—</strong></div>
+      </div>
+
+      <section class="drawer-section">
+        <div class="subheading"><span>Manage ticket</span></div>
+        <div class="form-grid two-columns">
+          <label class="field"><span>Status</span><select id="manageStatus"><option>Open</option><option>In Progress</option><option>Waiting</option><option>Resolved</option><option>Closed</option></select></label>
+          <label class="field"><span>Assigned to</span><input id="manageAssignee" type="text" placeholder="Technician name" /></label>
+        </div>
+        <button class="secondary-btn full" id="saveTicket">Save changes</button>
+      </section>
+
+      <section class="drawer-section">
+        <div class="subheading"><span>Internal notes</span></div>
+        <div id="notesList" class="notes-list"></div>
+        <div class="inline-form">
+          <input id="noteAuthor" type="text" value="Demo Technician" placeholder="Author" />
+          <textarea id="noteText" rows="3" placeholder="Add an internal note…"></textarea>
+          <button class="secondary-btn" id="addNote">Add note</button>
+        </div>
+      </section>
+
+      <section class="drawer-section">
+        <div class="subheading"><span>Similar resolved incidents</span><small>Browser similarity demo</small></div>
+        <div id="similarList" class="similar-list"></div>
+      </section>
+
+      <section class="drawer-section resolve-section">
+        <div class="subheading"><span>Resolve ticket</span></div>
+        <textarea id="resolutionText" rows="4" placeholder="Describe the resolution…"></textarea>
+        <button class="primary-btn full" id="resolveTicket">Mark as resolved</button>
+      </section>
+    </div>
+  </aside>
+</body>
+</html>
