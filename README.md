@@ -1,6 +1,34 @@
 # AI Helpdesk Copilot
 
-A live portfolio project that demonstrates an end-to-end IT support workflow: customer issue submission, ML category classification, transparent priority detection, troubleshooting retrieval, ticket management, technician notes, similar-incident search and operational analytics.
+A recruiter-facing portfolio project that demonstrates an end-to-end IT support workflow: customer issue submission, ML category classification, transparent priority detection, troubleshooting retrieval, ticket management, technician notes, similar-incident search and operational analytics.
+
+## Live demo
+
+**GitHub Pages:** https://billalhossainshishir.github.io/ai-helpdesk-copilot/
+
+The public recruiter demo is intentionally browser-only so it opens instantly without credentials, containers, database setup or backend wake-up time. It uses curated demo logic and browser `localStorage` to simulate the customer and technician workflow.
+
+> **Public-demo honesty:** the GitHub Pages site does not claim to be a hosted FastAPI/PostgreSQL/scikit-learn deployment. The complete backend, database models, trained classifier, retrieval logic, tests, Docker Compose setup and backend-connected frontend remain in this repository and can be run locally.
+
+### Public demo flow
+
+1. Open the customer portal.
+2. Choose a sample issue or enter your own.
+3. Click **Analyse issue** to see browser-side demo triage, priority reasoning and troubleshooting matches.
+4. Create a demo support ticket.
+5. Open **Technician dashboard**.
+6. Assign the ticket, add notes, change status and resolve it.
+7. Watch the dashboard analytics update from browser-stored demo data.
+
+## Portfolio deployment strategy
+
+This project follows the same deployment strategy as the other live portfolio projects:
+
+- **GitHub Pages** provides the fast, zero-login recruiter-facing simulation.
+- **The repository** proves the actual engineering implementation.
+- **Local/Docker execution** runs the real FastAPI application with SQLAlchemy, PostgreSQL support and the trained scikit-learn model.
+
+This separation is deliberate because GitHub Pages cannot execute Python/FastAPI or host PostgreSQL.
 
 ## Live recruiter flow
 
@@ -127,6 +155,13 @@ Current suite: **25 automated tests** covering ticket CRUD, auto-triage, classif
 
 ```text
 ai-helpdesk-copilot/
+├── index.html                    # GitHub Pages customer demo
+├── technician.html               # GitHub Pages technician demo
+├── assets/
+│   ├── css/style.css
+│   └── js/
+│       ├── app.js
+│       └── technician.js
 ├── backend/
 │   └── app/
 │       ├── routes/
@@ -163,6 +198,16 @@ ai-helpdesk-copilot/
 ├── requirements.txt
 └── README.md
 ```
+
+## GitHub Pages demo vs full backend
+
+### GitHub Pages demo
+
+The root `index.html`, `technician.html` and `assets/` files are an interactive browser simulation. Demo tickets are stored locally in the visitor's browser and are safe to reset.
+
+### Full engineering implementation
+
+The `backend/`, `frontend/`, `data/`, `models/`, `tests/`, Docker files and documentation contain the real project implementation. The backend performs ticket persistence, model serving, priority rules, knowledge retrieval, technician operations, similar-incident search and analytics through FastAPI.
 
 ## Design decisions
 
