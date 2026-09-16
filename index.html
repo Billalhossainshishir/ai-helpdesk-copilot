@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive GitHub Pages demo of AI Helpdesk Copilot. The repository contains the full FastAPI, PostgreSQL and scikit-learn implementation." />
+  <title>AI Helpdesk Copilot | GitHub Pages Demo</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">AI</span>
+        <span><strong>Helpdesk Copilot</strong><small>Portfolio Project</small></span>
+      </a>
+      <nav class="top-actions">
+        <a class="nav-link active" href="index.html">Report issue</a>
+        <a class="nav-link" href="technician.html">Technician dashboard</a>
+        <a class="nav-link" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="server-status online" role="status"><span class="status-dot"></span><span>GitHub Pages demo</span></div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero customer-hero">
+        <div>
+          <span class="eyebrow">LIVE PORTFOLIO DEMO · GITHUB PAGES · BROWSER SIMULATION</span>
+          <h1>Describe the problem. Let the copilot triage it.</h1>
+          <p>Explore the customer support workflow instantly in your browser. The complete repository contains the real Python/FastAPI backend, PostgreSQL-ready persistence, scikit-learn classifier, knowledge retrieval, tests and Docker setup.</p>
+          <div class="tech-pills">
+            <span>Demo: JavaScript</span><span>Backend: FastAPI</span><span>PostgreSQL</span><span>scikit-learn</span><span>TF-IDF Retrieval</span>
+          </div>
+        </div>
+        <div class="flow-card">
+          <span class="eyebrow light">RECRUITER FLOW</span>
+          <ol>
+            <li><b>1</b> Describe the issue</li>
+            <li><b>2</b> Demo triage predicts category</li>
+            <li><b>3</b> Rules estimate priority</li>
+            <li><b>4</b> Knowledge guidance is retrieved</li>
+            <li><b>5</b> Create and manage the ticket</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="customer-grid">
+        <div class="panel form-panel">
+          <div class="panel-heading">
+            <div><span class="eyebrow">CUSTOMER PORTAL</span><h2>Report IT Problem</h2></div>
+            <span class="required-note"><b>*</b> Required</span>
+          </div>
+
+          <div class="sample-box">
+            <span>Try a sample problem</span>
+            <div class="sample-buttons" id="sampleButtons">
+              <button type="button" data-sample="wifi">Wi-Fi issue</button>
+              <button type="button" data-sample="password">Password problem</button>
+              <button type="button" data-sample="security">Security incident</button>
+              <button type="button" data-sample="software">Software crash</button>
+            </div>
+          </div>
+
+          <form id="ticketForm" novalidate>
+            <div class="form-grid two-columns">
+              <label class="field"><span>Your name <b>*</b></span><input name="name" type="text" minlength="2" maxlength="120" placeholder="e.g. Alex Morgan" required /><small class="field-error" data-error-for="name"></small></label>
+              <label class="field"><span>Email address <b>*</b></span><input name="email" type="email" maxlength="254" placeholder="alex@example.com" required /><small class="field-error" data-error-for="email"></small></label>
+            </div>
+            <label class="field"><span>Device type</span><select name="device_type"><option value="">Select a device</option><option>Windows laptop</option><option>MacBook</option><option>Desktop PC</option><option>iPhone</option><option>Android phone</option><option>Tablet</option><option>Printer</option><option>Network / Wi-Fi</option><option>Other</option></select></label>
+            <label class="field"><span>Issue title <b>*</b></span><input name="title" type="text" minlength="3" maxlength="200" placeholder="Short summary of the problem" required /><small class="field-error" data-error-for="title"></small></label>
+            <label class="field"><span>Describe what is happening <b>*</b></span><textarea id="description" name="description" minlength="10" maxlength="5000" rows="7" placeholder="What happened? When did it start? What have you already tried?" required></textarea><div class="field-footer"><small class="field-error" data-error-for="description"></small><small id="descriptionCount">0 / 5000</small></div></label>
+
+            <div class="action-row">
+              <button class="secondary-btn" id="analyseButton" type="button">Analyse issue</button>
+              <button class="primary-btn" id="submitButton" type="submit">Create support ticket</button>
+            </div>
+            <div id="formAlert" class="form-alert" role="alert" hidden></div>
+          </form>
+        </div>
+
+        <aside class="right-stack">
+          <section class="panel analysis-panel" id="analysisPanel">
+            <div class="panel-heading compact">
+              <div><span class="eyebrow">DEMO TRIAGE</span><h2>Issue analysis</h2></div>
+              <span class="analysis-state" id="analysisState">Not analysed</span>
+            </div>
+            <div class="empty-analysis" id="analysisEmpty">
+              <span class="spark">✦</span>
+              <h3>Ready when you are</h3>
+              <p>Fill in an issue and click <b>Analyse issue</b>. This browser demo mirrors the workflow; the repository backend uses TF-IDF + Logistic Regression.</p>
+            </div>
+            <div id="analysisResult" hidden>
+              <div class="triage-chat">
+                <div class="chat-row user-row">
+                  <div class="chat-avatar user-avatar" id="chatUserInitials">U</div>
+                  <div class="chat-bubble user-bubble">
+                    <div class="chat-meta"><strong id="chatUserName">Requester</strong><small id="chatUserEmail">—</small></div>
+                    <p id="chatUserMessage">—</p>
+                  </div>
+                </div>
+                <div class="chat-row bot-row">
+                  <div class="chat-avatar bot-avatar">AI</div>
+                  <div class="chat-bubble bot-bubble">
+                    <div class="chat-meta"><strong>Helpdesk Copilot</strong><small>browser demo triage</small></div>
+                    <p id="chatBotMessage">I have analysed your issue.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="result-grid">
+                <div class="metric-card"><span>Category</span><strong id="analysisCategory">—</strong><small id="analysisConfidence">—</small></div>
+                <div class="metric-card"><span>Priority</span><strong id="analysisPriority">—</strong><small>Rule-based and explainable</small></div>
+              </div>
+              <div class="reason-box"><span>Why this priority?</span><ul id="priorityReasons"></ul></div>
+              <div class="suggestions">
+                <div class="subheading"><span>Troubleshooting guidance</span><small>Top 3 demo matches</small></div>
+                <div id="suggestionList"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel mini-card">
+            <span class="eyebrow">TECHNICIAN VIEW</span>
+            <h3>See the other side of the workflow</h3>
+            <p>Tickets created here are stored only in your browser and appear in the GitHub Pages technician demo.</p>
+            <a class="primary-link" href="technician.html">Open technician dashboard →</a>
+          </section>
+        </aside>
+      </section>
+
+      <section class="panel demo-transparency">
+        <div>
+          <span class="eyebrow">DEMO ARCHITECTURE</span>
+          <h2>Instant browser demo + full engineering implementation</h2>
+          <p><strong>GitHub Pages demo:</strong> JavaScript simulation with curated support examples and browser localStorage. It is designed for fast, zero-login recruiter exploration.</p>
+          <p><strong>Repository backend:</strong> Python/FastAPI, SQLAlchemy, PostgreSQL-ready persistence, scikit-learn TF-IDF + Logistic Regression classification, TF-IDF knowledge retrieval, technician workflows, analytics, Docker Compose and automated tests.</p>
+          <p class="demo-note">The public GitHub Pages site does not pretend to be a hosted FastAPI/PostgreSQL service. The full server-side implementation is available in the repository and can be run locally.</p>
+        </div>
+        <div class="demo-links">
+          <a class="primary-link button-link" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot" target="_blank" rel="noreferrer">View full code on GitHub</a>
+          <a class="secondary-btn demo-anchor" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture</a>
+          <a class="secondary-btn demo-anchor" href="https://github.com/Billalhossainshishir/ai-helpdesk-copilot/blob/main/docs/case-study.md" target="_blank" rel="noreferrer">Case study</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>AI Helpdesk Copilot · GitHub Pages Portfolio Demo</span>
+      <span>Full FastAPI + PostgreSQL + ML implementation in repository</span>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="successModal" hidden>
+    <section class="success-modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <div class="success-check">✓</div>
+      <span class="eyebrow">DEMO TICKET CREATED</span>
+      <h2 id="successTitle">Your issue has been logged.</h2>
+      <p>This demo ticket is stored in your browser and is now available in the technician dashboard.</p>
+      <div class="ticket-receipt">
+        <div><span>Requester</span><strong id="receiptRequester">—</strong></div>
+        <div><span>Email</span><strong id="receiptEmail">—</strong></div>
+        <div><span>Ticket number</span><strong id="receiptTicketNumber">—</strong></div>
+        <div><span>Status</span><strong id="receiptStatus">Open</strong></div>
+        <div><span>Category</span><strong id="receiptCategory">—</strong></div>
+        <div><span>Priority</span><strong id="receiptPriority">—</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary-btn" id="newTicketButton" type="button">Report another issue</button>
+        <a class="primary-link button-link" href="technician.html">View technician dashboard</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
