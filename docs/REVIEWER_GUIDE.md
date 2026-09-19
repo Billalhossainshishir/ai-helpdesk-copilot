@@ -59,11 +59,19 @@ Ticket classification and retrieval solve different problems: the classifier sel
 ## Limits and troubleshooting
 
 - A model-loading error should be investigated against the pinned scikit-learn version and the checked-in model; retraining is an explicit repair option, not something to hide from the reviewer.
-- A blank backend page can be checked against `/health`, `/docs` and the browser network panel. Serve the application from the repository root using the command above.
+- A blank backend page can be checked against `/health`, `/docs` and the browser network panel.
 - The system is a portfolio prototype. Authentication, authorisation and deployment hardening are required before handling real tickets.
-- The `screenshots/` directory currently contains capture instructions rather than application screenshots. Add real captures of the analysis result and resolved-ticket workflow when available.
-
+- The public GitHub Pages demo and local/backend execution are deliberately separate.
+- The `screenshots/` directory contains a real-capture checklist. The live demo is the current visual source of truth for the recruiter-facing UI.
 
 ## Recorded verification evidence
 
-At documentation review, the existing [GitHub Actions test run](https://github.com/Billalhossainshishir/ai-helpdesk-copilot/actions/runs/35169480816) reported `success` for `ac1cfe9fd9b69458da99538af1669a22484359c0`. This records an existing CI result; the documentation review did not install dependencies or rerun the application locally. Commands above were checked against source files and configuration. A successful CI run does not establish production readiness or validate untested UI integrations.
+At the latest documentation review, the GitHub Actions **Tests** workflow run created on 19 September 2026 completed successfully:
+
+https://github.com/Billalhossainshishir/ai-helpdesk-copilot/actions/runs/35445092747
+
+The latest GitHub Pages deployment from the same push also completed successfully:
+
+https://github.com/Billalhossainshishir/ai-helpdesk-copilot/actions/runs/35445092748
+
+These CI results verify the configured automated workflow completed successfully. They do not establish production readiness or replace manual end-to-end review of untested UI integrations.
