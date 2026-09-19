@@ -16,6 +16,11 @@ An IT support application that helps a customer describe an issue and a technici
 | **Model evaluation** | [docs/model-evaluation.md](docs/model-evaluation.md) |
 | **Database schema** | [docs/database-schema.md](docs/database-schema.md) |
 
+
+## Project preview
+
+![AI Helpdesk Copilot live demo overview](screenshots/ai-helpdesk-overview.jpg)
+
 ### What to try in 60 seconds
 
 1. Open the **live demo**.
