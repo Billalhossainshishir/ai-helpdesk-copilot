@@ -1,6 +1,8 @@
 # AI Helpdesk Copilot
 
-A recruiter-facing portfolio project that demonstrates an end-to-end IT support workflow: customer issue submission, ML category classification, transparent priority detection, troubleshooting retrieval, ticket management, technician notes, similar-incident search and operational analytics.
+An IT support application that helps a customer describe an issue and a technician investigate, prioritise and resolve it. The backend combines ticket management with text classification, rule-based priority and retrieval of troubleshooting guidance.
+
+Read the [reviewer guide](docs/REVIEWER_GUIDE.md) for execution modes, reproducible setup, architecture, verification steps and known limitations.
 
 ## Live demo
 
@@ -30,7 +32,7 @@ This project follows the same deployment strategy as the other live portfolio pr
 
 This separation is deliberate because GitHub Pages cannot execute Python/FastAPI or host PostgreSQL.
 
-## Live recruiter flow
+## Local backend workflow
 
 **Describe issue → Analyse issue → ML category prediction → Priority rules → Top 3 troubleshooting matches → Create ticket → Technician dashboard → Assign / note / resolve → Analytics update**
 
@@ -91,7 +93,7 @@ Interactive OpenAPI documentation is available at `/docs` while the app is runni
 
 ## Run locally without Docker
 
-From the repository root on Windows PowerShell:
+Python 3.13 matches CI. From the repository root on Windows PowerShell:
 
 ```powershell
 python -m venv .venv

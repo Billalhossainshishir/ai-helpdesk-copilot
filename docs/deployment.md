@@ -1,8 +1,8 @@
 # Deployment Notes
 
-The application is deployment-ready as a single FastAPI service with a PostgreSQL database.
+The repository includes a deployment path for a single FastAPI service with PostgreSQL. It remains a portfolio prototype and requires the controls described below before use with real support data.
 
-## Required production configuration
+## Example prototype configuration
 
 Set environment variables:
 
